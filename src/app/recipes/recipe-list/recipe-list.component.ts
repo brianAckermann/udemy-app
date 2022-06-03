@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Recipe } from '../recipe.model';
 
 @Component({
@@ -8,6 +8,10 @@ import { Recipe } from '../recipe.model';
 })
 export class RecipeListComponent implements OnInit {
 
+
+  
+  @Output() recipeSelectedEvent = new EventEmitter<Recipe>(); 
+
   recipes: Recipe[] = [
     new Recipe( 'Peas on Toast', 'Toast with peas in a white flour gravy', 'https://img.sndimg.com/food/image/upload/w_555,h_416,c_fit,fl_progressive,q_95/v1/img/recipes/98/22/picftMJDs.jpg')
 ,    new Recipe( 'Cheese Sandwich', 'A sandwich made with cheese', 'https://www.telegraph.co.uk/multimedia/archive/03268/Cheese_sandwich_AJ_3268260b.jpg')
@@ -16,6 +20,12 @@ export class RecipeListComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  handleRecipeSelectedEvent(r: Recipe) {
+    
+    console.log ('handling recipe selected event for  list level:'+ r.name)
+    this.recipeSelectedEvent.emit(r);
   }
 
 }

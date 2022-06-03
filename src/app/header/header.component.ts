@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component ({
     selector: 'app-header',
@@ -7,4 +7,17 @@ import { Component } from '@angular/core';
 
 export class HeaderComponent {
     collapsed = true;
+
+    @Output() appHeaderNavSelectEvent = new EventEmitter<string>();
+
+    onHeaderSelectRecipes() {
+        console.log("selected recipes header nav option.")
+        this.appHeaderNavSelectEvent.emit('RECIPES');
+    }
+
+    onHeaderSelectShoppingList() {
+        console.log("selected shopping list header nav option.")
+        this.appHeaderNavSelectEvent.emit('SHOPPING_LIST');
+
+    }
 }
