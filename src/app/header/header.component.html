@@ -6,13 +6,13 @@
             </button>
             <a routerLink="/" class="navbar-brand">Recipe Book</a>
         </div>
-        <div class="navbar-collapse" [class.collapse]="collapsed" (window:resize)="collapsed = true">
+        <div class="navbar-collapse" [class.collapse]="collapsed" (window:resize)="collapsed = true" >
             <ul class="nav navbar-nav">
                 <li><a href="#" (click)="onHeaderSelectRecipes()">Recpies</a></li>
                 <li><a href="#" (click)="onHeaderSelectShoppingList()">Shopping List</a></li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown">
+            <ul class="nav navbar-nav navbar-right" >
+                <li class="dropdown" appDropdown>
                     <a href="#" class="dropdown-toggle" role="button">Manage Data <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="#">Save Data</a></li>
